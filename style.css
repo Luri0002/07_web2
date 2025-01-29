@@ -135,3 +135,17 @@ a {
   background-color: rgb(104, 160, 234);
   padding: 1.5rem;
 }
+
+@media screen and (max-width: 700px) {
+  .categories_grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .category_list_container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid_1_1_1 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
