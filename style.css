@@ -50,6 +50,10 @@ h3 {
 p {
   margin-bottom: 0.5rem;
 }
+
+a {
+  color: rgb(46, 126, 230);
+}
 /*****************/
 
 .categories_grid {
@@ -62,14 +66,14 @@ p {
   color: white;
   font-weight: bold;
   text-decoration: none;
-  background-color: grey;
+  background-color: rgb(46, 126, 230);
   padding: 2rem;
   border-radius: 0.5rem;
   transition-duration: 0.3s;
 }
 
 .categories_grid a:hover {
-  background-color: blue;
+  background-color: rgb(32, 82, 147);
 }
 
 /** produktliste **/
@@ -78,13 +82,44 @@ p {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 2rem;
-  grid-template-rows: auto auto;
+  grid-template-rows: repeat(5, auto);
 }
 
 .item {
+  grid-row: span 5;
   display: grid;
-  grid-template-columns: subgrid;
-  grid-row: span 4;
+  grid-template-rows: subgrid;
+  position: relative;
+  gap: 0.5rem;
+}
+
+.discount {
+  position: absolute;
+  top: 55.4%;
+  left: 65.5%;
+  text-align: center;
+  background-color: rgb(46, 126, 230);
+  width: 105px;
+  padding-top: 0.5rem;
+  color: white;
+  font-weight: bold;
+}
+
+.sold_out {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  text-align: center;
+  background-color: rgb(224, 4, 4);
+  width: 105px;
+  color: white;
+  font-weight: bold;
+  padding-top: 0.5rem;
+}
+
+.sold_out_img {
+  opacity: 0.5;
+  filter: grayscale(100%);
 }
 
 /** produkt **/
