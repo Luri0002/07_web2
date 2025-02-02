@@ -24,8 +24,17 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
             <div class="kurv">
                 <h1>${data.productdisplayname}</h1>
                 <p>${data.brandname}</p>
-                <h3>Choose a size <button>s</button></h3>
-                <button>Add to basket</button>
+        <div class="size-selector">
+                <label for="size" class="size-label">Choose a size</label>
+                <select id="size" class="size-select">
+                    <option value="xs">XS</option>
+                    <option value="s">S</option>
+                    <option value="m">M</option>
+                    <option value="l">L</option>
+                    <option value="xl">XL</option>
+                </select>
+            </div>
+                <button class="style-button">Add to basket</button>
             </div>
         </div>
 `;
