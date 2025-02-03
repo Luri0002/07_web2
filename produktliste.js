@@ -1,8 +1,14 @@
+const myCategory = new URLSearchParams(window.location.search).get("category");
+
 // Finder 'category_list_container' - her skal produktlisten indsættes
 let listContainer = document.querySelector(".category_list_container");
 
+const overskrift = document.querySelector("h1");
+
+overskrift.innerHTML = myCategory;
+
 // Henter data om alle produkter fra API'et
-fetch(`https://kea-alt-del.dk/t7/api/products/`)
+fetch(`https://kea-alt-del.dk/t7/api/products?category=${myCategory}`)
   .then((response) => response.json())
   // Når dataen er hentet, konverteres den fra JSON-format (tekst) til et JavaScript-objekt
   .then((data) => showList(data));
@@ -22,7 +28,7 @@ function showList(products) {
                 <div class="price">
                     <p>${product.price},-</p>
                 </div>
-                <a href="produkt.html">Read more</a>
+                <a href="produkt.html?id=${product.id}">Read more</a>
             </article>`
     )
     .join("");
