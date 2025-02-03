@@ -29,7 +29,7 @@ function showList(products) {
             </div>`;
     })
     .join("");
-  // .join("") samler alle elementerne i arrayet til én stor streng uden mellemrum eller separatorer.
+  // .join("") samler alle elementerne i arrayet til én stor streng uden mellemrum eller separatorer. (default kommer der komma ved join)
   // Dette betyder, at HTML-strukturen for hvert produkt bliver sat sammen uden ekstra mellemrum mellem dem.
   // Resultatet bliver én sammenhængende streng, der kan indsættes i innerHTML på én gang.
 
