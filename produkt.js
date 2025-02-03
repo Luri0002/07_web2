@@ -1,5 +1,5 @@
 // Definerer produktets ID, som bruges til at hente specifik data fra API'et
-let productId = 1163;
+let productId = new URLSearchParams(window.location.search).get("id");
 
 // Finder HTML-elementet med klassen 'productContainer' - hvor produktdataen skal indsættes
 let productContainer = document.querySelector(".productContainer");
