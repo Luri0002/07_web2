@@ -12,13 +12,10 @@ fetch(`https://kea-alt-del.dk/t7/api/products/`)
 function showList(products) {
   console.log(products); // Logger alle produkter i konsollen, så man kan se den hentede data
 
-  let markup = ""; // Opretter en tom streng, som vi bruger til at bygge HTML'en dynamisk (en slags container)
-
-  products
-    .map((product) => {
-      // Går igennem hvert produkt i listen og bygger HTML-strukturen for hvert produkt. "+=" adderer hver ny produkt til den eksisterende markup (i slutningen)
-      markup += `            
-            <div class="item">
+  const markup = products
+    .map(
+      (product) => `            
+            <article class="item">
                 <img src="https://kea-alt-del.dk/t7/images/webp/640/${product.id}.webp" alt="${product.productdisplayname}">
                 <h2>${product.productdisplayname}</h2>
                 <h3>${product.brandname}</h3>
@@ -26,10 +23,10 @@ function showList(products) {
                     <p>${product.price},-</p>
                 </div>
                 <a href="produkt.html">Read more</a>
-            </div>`;
-    })
+            </article>`
+    )
     .join("");
-  // .join("") samler alle elementerne i arrayet til én stor streng uden mellemrum eller separatorer.
+  // .join("") samler alle elementerne i arrayet til én stor streng uden mellemrum eller separatorer. (default kommer der komma ved join)
   // Dette betyder, at HTML-strukturen for hvert produkt bliver sat sammen uden ekstra mellemrum mellem dem.
   // Resultatet bliver én sammenhængende streng, der kan indsættes i innerHTML på én gang.
 
