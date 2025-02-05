@@ -15,9 +15,13 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
     // Indsætter den hentede data i HTML'en ved at opdatere indholdet (innerHTML) af 'productContainer'
 
     productContainer.innerHTML = ` 
-        <div class="grid_1_1_1">
-            <div>
-                <img src="https://kea-alt-del.dk/t7/images/webp/640/${productId}.webp" alt="T-shirt">
+        <article class="grid_1_1_1">
+
+            <div class="position">
+                <img class="${data.soldout && "sold_out_img"}" src="https://kea-alt-del.dk/t7/images/webp/640/${productId}.webp" alt="${data.productdisplayname}">
+                <span class="discount2 ${data.discount && "isOnSale"}">-${data.discount}%</span>
+
+                <span class="sold_out2 ${data.soldout && "isSoldOut"}">SOLD OUT</span>
             </div>
 
             <div>
@@ -26,6 +30,12 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
                 <p>${data.productdisplayname}</p> 
                 <h2>Color</h2>
                 <p>${data.colour1}</p> 
+
+                <h2>Price</h2>
+                <p class="${!data.discount && "hide"}">Now ${Math.round(data.price * (1 - data.discount / 100))},-</p>
+                <p class="${data.discount && "foerpris"}" >${data.price},-</p>
+
+
                 <h2>Inventory number</h2>
                 <p>${data.id}</p> 
                 <h2>${data.brandname}</h2> 
@@ -49,7 +59,7 @@ fetch(`https://kea-alt-del.dk/t7/api/products/${productId}`)
 
                 <button class="style-button">Add to basket</button>
             </div>
-        </div>
+        </article>
     `;
   });
 
